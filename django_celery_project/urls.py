@@ -19,6 +19,7 @@ from main_app import views
 from email_sending import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('test', views.test),
-    path("send", v.send_mail_to_all)
+    path('test', views.test),
+    path("send", v.send_mail_to_all),
+    path("schedulemail", v.schedule_mail)
 ]
