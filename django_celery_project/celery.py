@@ -12,6 +12,11 @@ app.conf.enable_utc = False
 app.conf.update(timezone='Asia/Kolkata')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
+#celery beat settings
+
+app.conf.beat_schedule = {
+    #add task
+}
 
 app.autodiscover_tasks()
 

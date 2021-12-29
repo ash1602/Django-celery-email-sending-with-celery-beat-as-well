@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app',
     'django_celery_results',
+    'django-celery-beat'
 ]
 
 MIDDLEWARE = [
@@ -134,4 +135,11 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = "Asia/Kolkata"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+
+
 CELERY_RESULT_BACKEND = 'django-db'
+
+
+
+#CELERY_BEAT 
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
