@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main_app import views
+from email_sending import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.test)
+     path('test', views.test),
+    path("send", v.send_mail_to_all)
 ]

@@ -18,7 +18,7 @@ app.conf.beat_schedule = {
     #add task
 }
 
-app.autodiscover_tasks()
+app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
  
 @app.task(bind=True)
