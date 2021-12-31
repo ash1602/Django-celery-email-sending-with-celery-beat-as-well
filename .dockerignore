@@ -1,0 +1,4 @@
+celery
+.env
+__pycache__
+.vscode

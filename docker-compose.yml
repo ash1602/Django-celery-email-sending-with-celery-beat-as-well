@@ -1,0 +1,25 @@
+version: "3"
+services:
+  
+  redis:
+    image: redis:alpine
+    container_name: redis
+
+
+  api:
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/celery
+    command: python manage.py runserver 0.0.0.0:8000
+    
+  celery:
+    restart: always
+    build: 
+      context: .
+    command: celery -A django_celery_project worker -l DEBUG 
+    volumes:
+      - .:/celery
+    depends_on:
+      - redis
